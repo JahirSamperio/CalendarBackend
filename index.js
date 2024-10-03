@@ -2,6 +2,7 @@ import express from "express";
 import {config} from 'dotenv';
 import cors from 'cors'
 import authRouter from './routes/auth.js'
+import eventsRouter from './routes/events.js'
 import { dbConnection } from "./database/config.js";
 // Ejecuta la función config() para cargar las variables de entorno desde el archivo .env
 config();
@@ -24,7 +25,7 @@ app.use( express.json());
 
 //Rutas
 app.use('/api/auth', authRouter);
-//TODO: CRUD: eventos
+app.use('/api/events', eventsRouter);
 
 
 //Escuchar peticiones
